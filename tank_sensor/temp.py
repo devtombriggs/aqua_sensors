@@ -1,1 +1,5 @@
-print("first git push")
+def temp():
+    return 30
+
+temp()
+
