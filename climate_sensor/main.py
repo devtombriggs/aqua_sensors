@@ -1,17 +1,18 @@
 ### TODO
 import humidity, weather
 import requests
+import time
 
 # Grab hello World from both py classes
 def fetch_data():
     get_humidity = humidity.humdity()
     get_weather = weather.weather()
 
-    return {"humidity": get_humidity, "weather": get_weather }
+    return {"message": get_humidity, "weather": get_weather }
 
 # Send Hello World to backend application with post method
 def post_data():
-    url = 'localhost'
+    url = 'http://localhost:8080/api/ingest'
     data = fetch_data()
 
     x = requests.post(url, json = data)
@@ -20,8 +21,9 @@ def post_data():
 
 def main():
     print(fetch_data())
+    post_data()
 
-main()
-
-
+while True:
+    time.sleep(300)
+    main()
 

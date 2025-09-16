@@ -1,13 +1,14 @@
 ### TODO
 import water, ph
 import requests
+import time
 
 # Grab hello World from both py classes
 def fetch_data():
-    get_ph = ph.humdity()
-    get_water = water.weather()
+    get_ph = ph.ph()
+    get_water = water.water()
 
-    return {"ph": get_ph, "water": get_water }
+    return {"message": get_ph, "water": get_water }
 
 # Send Hello World to backend application with post method
 def post_data():
@@ -20,5 +21,8 @@ def post_data():
 
 def main():
     print(fetch_data())
+    post_data()
 
-main()
+while True:
+    time.sleep(300)
+    main()
