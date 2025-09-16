@@ -1,5 +1,5 @@
 ### TODO
-import temp, ph
+import ph, temp
 import requests
 import time
 
@@ -8,11 +8,11 @@ def fetch_data():
     get_ph = ph.ph()
     get_temp = temp.temp()
 
-    return {"message": get_ph, "temp": get_temp }
+    return {"message": get_ph, "weather": get_temp }
 
 # Send Hello World to backend application with post method
 def post_data():
-    url = 'localhost'
+    url = 'http://localhost:8080/api/ingest'
     data = fetch_data()
 
     x = requests.post(url, json = data)
@@ -24,5 +24,6 @@ def main():
     post_data()
 
 while True:
-    time.sleep(40)
+    time.sleep(3)
     main()
+
