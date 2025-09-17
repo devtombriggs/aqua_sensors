@@ -1,4 +1,7 @@
-FROM ubuntu:latest
-LABEL authors="tom"
+FROM python:3.9.23-trixie
 
-ENTRYPOINT ["top", "-b"]
+COPY . /app
+
+RUN pip install requests
+
+CMD ["python", "/app/main.py"]

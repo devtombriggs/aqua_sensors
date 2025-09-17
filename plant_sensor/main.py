@@ -12,11 +12,10 @@ def fetch_data():
 
 # Send Hello World to backend application with post method
 def post_data():
-    url = 'http://localhost:8080/api/ingest'
+    url = 'http://172.18.0.1:8080/api/ingest'
     data = fetch_data()
 
     x = requests.post(url, json = data)
-
     print(x.text)
 
 def main():
@@ -24,6 +23,6 @@ def main():
     post_data()
 
 while True:
-    time.sleep(3)
+    time.sleep(300)
     main()
 
