@@ -1,16 +1,13 @@
-### TODO
 import ph, temp
 import requests
 import time
 
-# Grab hello World from both py classes
 def fetch_data():
     get_ph = ph.ph()
     get_temp = temp.temp()
 
     return {"message": get_ph, "weather": get_temp }
 
-# Send Hello World to backend application with post method
 def post_data():
     url = 'http://172.18.0.1:8080/api/ingest'
     data = fetch_data()
